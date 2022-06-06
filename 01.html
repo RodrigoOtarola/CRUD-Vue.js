@@ -9,11 +9,16 @@
 </head>
 <body>
 <div id="app">
-<!--    Se puede ocupar la interpolación.-->
+    <!--    Se puede ocupar la interpolación.-->
     <h1>{{titulo}}</h1>
 
     <ul>
-        <li v-for="fruta of frutas">{{fruta}}</li>
+        <!--        Imprimir Objetos de js-->
+        <li v-for="fruta of frutas">{{fruta.nombre}}:
+            <span v-if="fruta.cantidad > 0">{{fruta.cantidad}}</span>
+            <!--        Condicional de stock-->
+            <span v-else>- Sin Stock.</span>
+        </li>
     </ul>
 </div>
 
