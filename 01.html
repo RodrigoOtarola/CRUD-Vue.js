@@ -12,6 +12,10 @@
     <!--    Se puede ocupar la interpolación.-->
     <h1>{{titulo}}</h1>
 
+    <input type="text" v-model="nuevaFruta">
+<!--    Para agrega funcion onclick-->
+    <button @click="agregarFruta">Agregar</button>
+
     <ul>
         <!--        Imprimir Objetos de js-->
         <li v-for="fruta of frutas">{{fruta.nombre}}:
