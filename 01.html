@@ -12,17 +12,23 @@
     <!--    Se puede ocupar la interpolación.-->
     <h1>{{titulo}}</h1>
 
-    <input type="text" v-model="nuevaFruta">
-<!--    Para agrega funcion onclick-->
+    <!--    Con el v-model se queda con la palabra escrita-->
+    <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
+    <!--    Para agrega funcion onclick-->
     <button @click="agregarFruta">Agregar</button>
 
     <ul>
         <!--        Imprimir Objetos de js-->
-        <li v-for="fruta of frutas">{{fruta.nombre}}:
-            <span v-if="fruta.cantidad > 0">{{fruta.cantidad}}</span>
+        <li v-for="fruta of frutas">
+            <input type="number" v-model.number="fruta.cantidad">
+            <!--            Para agregar boton más que permita agregar más productos-->
+            <button @click="fruta.cantidad++">+</button>
+            {{fruta.nombre}}
+            <span v-if="fruta.cantidad > 0"></span>
             <!--        Condicional de stock-->
             <span v-else>- Sin Stock.</span>
         </li>
+        <h3>Total: {{sumarFrutas}}</h3>
     </ul>
 </div>
 
