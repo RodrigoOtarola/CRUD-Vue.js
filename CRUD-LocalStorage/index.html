@@ -20,7 +20,8 @@
 
     <div class="mt-3" v-for="(item,index) of tareas" :key="index">
 
-        <div class="alert alert-primary" role="alert">
+<!--        Con '?' preguntamos la condición, si es true es success y si es false es danger-->
+        <div role="alert" :class="['alert',item.estado ? 'alert-success' : 'alert-danger']">
             <!--            Separa div en bloques-->
             <div class="d-flex justify-content-between align-items-center">
                 <div>
@@ -28,7 +29,7 @@
                 </div>
                 <div>
                     <button class="btn btn-success btn-sm" @click="editarTarea(index)"><i class="bi bi-bookmark-check"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></button>
+                    <button class="btn btn-danger btn-sm" @click="eliminarTarea(index)"><i class="bi bi-trash3-fill"></i></button>
                 </div>
             </div>
         </div>
