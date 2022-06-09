@@ -13,6 +13,9 @@ const app = new Vue({
                 estado: false
             });
             this.nuevaTarea = '';
+        },
+        editarTarea: function (index){
+            this.tareas[index].estado = true;
         }
 
     }
